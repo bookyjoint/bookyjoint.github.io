@@ -1,0 +1,418 @@
+/* ═══════════════════════════════════════════════════
+   Booky Joint – Shared Stylesheet
+   All pages link to this file.
+   ═══════════════════════════════════════════════════ */
+
+/* ── CSS Variables ──────────────────────────────────── */
+:root {
+  --bg:           #c9c28a;
+  --card-bg:      #f5f2e8;
+  --card-border:  #4a4a3a;
+  --navy:         #1e2a3a;
+  --text:         #2a2a1e;
+  --text-light:   #555540;
+  --link:         #1a4a7a;
+  --link-hover:   #c0392b;
+  --nav-bg:       #3a3a2a;
+  --nav-hover:    #5a5a3a;
+  --font-display: 'Fredericka the Great', serif;
+  --font-brand:   'Chelsea Market', cursive;
+  --font-body:    'Open Sans', sans-serif;
+}
+
+/* ── Reset & Base ───────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--bg);
+  background-image: repeating-linear-gradient(
+    0deg, transparent, transparent 2px,
+    rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px
+  );
+  font-family: var(--font-body);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+a { color: var(--link); text-decoration: underline; }
+a:hover { color: var(--link-hover); }
+
+/* ── Site wrapper ───────────────────────────────────── */
+.site-wrapper {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 12px 12px 0;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+.site-header {
+  width: 100%;
+  border: 2px solid var(--card-border);
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  background: #000;
+}
+
+/* ── Single full-width banner (current) ─────────────────
+   Used when logo + mountain photo are one combined image.
+   When a separate hi-res logo is available, replace the
+   .header-full div with .header-logo + .header-photo (below).
+──────────────────────────────────────────────────────── */
+.header-full {
+  flex: 1;
+  min-height: 110px;
+  background-image: url('images/header-banner.webp');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* ── Split header (future use, when hi-res logo available) ──
+.header-logo {
+  flex: 0 0 auto;
+  width: 310px;
+  min-height: 110px;
+  background-color: #e8dfc0;
+  background-image: url('images/logo.webp');
+  background-size: auto 110%;
+  background-position: left center;
+  background-repeat: no-repeat;
+  border-right: 2px solid var(--card-border);
+}
+
+.header-photo {
+  flex: 1;
+  min-height: 110px;
+  background-color: #6a8faa;
+  background-image: url('images/header-photo.webp');
+  background-size: cover;
+  background-position: right center;
+}
+────────────────────────────────────────────────────────── */
+
+/* ── Navigation ─────────────────────────────────────── */
+nav.main-nav {
+  background: var(--nav-bg);
+  border: 2px solid var(--card-border);
+  border-top: none;
+  margin-bottom: 16px;
+}
+
+nav.main-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav.main-nav ul li a {
+  display: block;
+  padding: 8px 14px;
+  color: #e8e0cc;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-right: 1px solid rgba(255,255,255,0.12);
+  transition: background 0.15s, color 0.15s;
+}
+
+nav.main-nav ul li:last-child a { border-right: none; }
+
+nav.main-nav ul li a:hover,
+nav.main-nav ul li a.active {
+  background: var(--nav-hover);
+  color: #fff;
+}
+
+/* ── Cards ──────────────────────────────────────────── */
+.card {
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+
+.card h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-family: var(--font-brand);
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* ── Single column layout ───────────────────────────────
+   To restore two columns later, change to:
+     .content-area { display: flex; gap: 14px; align-items: flex-start; }
+     .col-left     { flex: 1 1 0; min-width: 0; }
+     .col-right    { flex: 0 0 240px; }
+──────────────────────────────────────────────────────── */
+.content-area { display: block; }
+.col-left, .col-right { width: 100%; }
+
+/* ── We Carry + Hours two-up row ────────────────────────
+   These two cards sit side by side, stacking on mobile.
+──────────────────────────────────────────────────────── */
+.info-row {
+  display: flex;
+  gap: 14px;
+  align-items: stretch;
+  margin-bottom: 0;
+}
+
+.info-col {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* ── We Carry list ──────────────────────────────────────── */
+.carry-list {
+  list-style: none;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.carry-list li {
+  font-size: 0.88rem;
+  color: var(--text);
+  line-height: 1.6;
+  text-align: center;
+}
+
+.carry-list li + li::before {
+  content: '';
+}
+
+/* ── Hours table — centered ─────────────────────────────── */
+.hours-card h2 {
+  text-align: center;
+}
+
+.hours-card table {
+  margin: 10px auto 0;
+}
+
+.hours-note {
+  text-align: center;
+}
+
+@media (max-width: 520px) {
+  .info-row { flex-direction: column; }
+}
+
+/* ── Page intro (full-width heading card) ───────────── */
+.page-intro {
+  margin-bottom: 14px;
+}
+
+.page-intro h2 {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  margin-bottom: 8px;
+}
+
+.page-intro p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-light);
+}
+
+/* ── Photo grid ─────────────────────────────────────── */
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.photo-grid img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border: 1px solid var(--card-border);
+  display: block;
+}
+
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: #b8b07a;
+  border: 1px solid var(--card-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #6a6040;
+  font-style: italic;
+  text-align: center;
+  padding: 8px;
+}
+
+/* ── Pick / feature items ───────────────────────────── */
+.pick-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed #b0a878;
+}
+
+.pick-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.pick-item img {
+  width: 70px;
+  flex-shrink: 0;
+  border: 1px solid var(--card-border);
+}
+
+.pick-item .pick-info h4 {
+  font-family: var(--font-brand);
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.pick-item .pick-info p {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.pick-item .pick-info .staff-note {
+  margin-top: 5px;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--text);
+}
+
+/* ── "Remember" box ─────────────────────────────────── */
+.remember-card {
+  background: var(--card-bg);
+  border: 2px dashed var(--navy);
+  padding: 14px 18px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.remember-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.remember-card p {
+  font-size: 0.83rem;
+  line-height: 1.6;
+}
+
+/* ── Sidebar: hours ─────────────────────────────────── */
+.hours-card table {
+  width: 100%;
+  font-size: 0.84rem;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+.hours-card table td:first-child {
+  text-align: right;
+  padding-right: 10px;
+  white-space: nowrap;
+  width: 140px;
+}
+
+.hours-card table td:last-child {
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+  width: 140px;
+}
+
+.hours-note {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--text-light);
+  margin-top: 8px;
+}
+
+/* ── Sidebar: contact/location ──────────────────────── */
+.contact-card address {
+  font-style: normal;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+/* ── Divider ────────────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 1px dashed #b0a878;
+  margin: 12px 0;
+}
+
+/* ── Footer ─────────────────────────────────────────── */
+footer {
+  background: var(--navy);
+  color: #c8c8b8;
+  margin-top: 20px;
+  padding: 24px 20px;
+  border-top: 3px solid var(--card-border);
+}
+
+.footer-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 24px;
+}
+
+footer h4 {
+  font-family: var(--font-brand);
+  font-size: 0.9rem;
+  color: #e8e0c8;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding-bottom: 4px;
+}
+
+footer p, footer address {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  font-style: normal;
+  color: #a8a898;
+}
+
+.hours-seasonal {
+  font-size: 0.75rem;
+  font-style: italic;
+  margin-top: 4px;
+  color: #888878;
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 620px) {
+  .content-area    { flex-direction: column; }
+  .col-right       { flex: 1 1 auto; width: 100%; }
+  .footer-inner    { grid-template-columns: 1fr; gap: 16px; }
+  /* .header-logo width rule goes here if split header is re-enabled */
+  nav.main-nav ul li a { padding: 7px 9px; font-size: 0.76rem; }
+  .photo-grid      { grid-template-columns: 1fr; }
+}
