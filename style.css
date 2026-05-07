@@ -350,14 +350,19 @@ nav.main-nav ul li a.active {
   font-size: 0.78rem;
   font-style: italic;
   color: var(--text-light);
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 /* ── Sidebar: contact/location ──────────────────────── */
 .contact-card address {
+  text-align: center;
   font-style: normal;
   font-size: 0.85rem;
   line-height: 1.8;
+}
+
+.contact-card h3 {
+  text-align: center;
 }
 
 /* ── Divider ────────────────────────────────────────── */
