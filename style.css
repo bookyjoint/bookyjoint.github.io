@@ -20,6 +20,61 @@
   --font-body:    'Open Sans', sans-serif;
 }
 
+/* ── Image Carousel ───────────────────────────────────── */
+.carousel-container {
+  width: 100%;
+  max-width: 760px;
+  margin: 24px auto;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  border: 2px solid var(--card-border);
+  background: var(--card-bg);
+}
+
+.carousel-slide {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+  width: 100%;
+  flex-shrink: 0;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Navigation buttons only for the carousel */
+.carousel-container button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  color: white;
+  border: none;
+  padding: 12px 14px;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+#prevBtn { left: 12px; }
+#nextBtn { right: 12px; }
+
+.carousel-container button:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+@media (max-width: 640px) {
+  .carousel-container button {
+    padding: 10px 12px;
+    font-size: 18px;
+  }
+}
+
+
 /* ── Reset & Base ───────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
