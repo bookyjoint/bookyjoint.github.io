@@ -306,7 +306,7 @@ nav.main-nav ul li a.active {
 .welcome-row {
   display: flex;
   gap: 20px;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .welcome-hours {
@@ -319,6 +319,7 @@ nav.main-nav ul li a.active {
   font-family: var(--font-display);
   font-size: 1.2rem;
   margin-bottom: 8px;
+  text-align: center;
 }
 
 .welcome-hours table {
@@ -649,6 +650,7 @@ footer p, footer address {
   /* .header-logo width rule goes here if split header is re-enabled */
   nav.main-nav ul li a { padding: 10px 12px; font-size: 0.82rem; }
   .photo-grid      { grid-template-columns: 1fr; }
+  .header-full     { background-image: url('images/Logo_BlueWhite_Website.webp'); }
   
   .welcome-row {
     flex-direction: column;
