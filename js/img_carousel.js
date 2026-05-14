@@ -7,11 +7,13 @@ window.addEventListener('DOMContentLoaded', async () => {
     return;
   }
 
-  // Load carousel images from manifest
+  // Load carousel images from manifest path set on the page.
+  const manifestPath = carouselSlide.dataset.manifest || 'images/carousel-manifest.json';
+
   try {
-    const response = await fetch('images/carousel-manifest.json');
+    const response = await fetch(manifestPath);
     const imageList = await response.json();
-    
+
     // Create and append img elements
     imageList.forEach(image => {
       const img = document.createElement('img');
