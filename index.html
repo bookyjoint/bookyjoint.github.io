@@ -51,7 +51,8 @@
       <div class="welcome-text">
         <h2>Welcome to Booky Joint!</h2>
         <p>Mammoth Lakes' independent, locally owned bookstore since 1975. Stop in to browse our large selection of new and used books, art supplies, toys, games, Lego, maps, magazines, cards, and gifts — all nestled under beautiful Mammoth Mountain.</p>
-        <p style="text-align: center; margin-top:10px; font-size:1.2rem;">We no longer have a business phone, but we're always happy to hear from you — reach us by email at <a href="mailto:bookyjoint@gmail.com">bookyjoint@gmail.com</a>.</p>
+        <p style="text-align: center; margin-top:10px; font-size:0.8rem;"><em>We no longer have a business phone, but we're always happy to hear from you</em></p>
+        <p style="text-align: center; margin-top:10px; font-size:0.8rem;"><em>— reach us by email at <a href="mailto:bookyjoint@gmail.com">bookyjoint@gmail.com</a>.</em></p>
         <br>
       </div>
       <blockquote>
@@ -132,16 +133,28 @@
     </div>
 
     <!-- Image carousel — full width below -->
+    <div class="carousel-heading">
+      <h2>Check out what we’ve got</h2>
+      <p>Discover a few of our favorite stock, local finds, and store highlights.</p>
+    </div>
     <div class="carousel-container">
       <div class="carousel-slide">
         <!-- Replace these URLs with your actual images -->
         <img src="images/test2.PNG" alt="Slide 1">
         <img src="images/test1.PNG" alt="Slide 2">
         <img src="images/Mammoth_Mountain_Vern.jpg" alt="Slide 3">
+        <img src="images/Logo_BlueWhite_Website.webp" alt="Slide 4">
       </div>
       
       <button id="prevBtn">❮</button>
       <button id="nextBtn">❯</button>
+    </div>
+
+    <div class="image-modal" id="imageModal" aria-hidden="true">
+      <button class="modal-close" id="modalClose" aria-label="Close image viewer">×</button>
+      <div class="modal-content">
+        <img id="modalImage" src="" alt="Full size carousel image">
+      </div>
     </div>
 
   </div><!-- /content-area -->

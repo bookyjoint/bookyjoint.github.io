@@ -46,6 +46,51 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   const carouselContainer = document.querySelector('.carousel-container');
+  const modal = document.getElementById('imageModal');
+  const modalClose = document.getElementById('modalClose');
+  const modalImage = document.getElementById('modalImage');
+
+  const openModal = (src, alt) => {
+    if (!modal || !modalImage) return;
+    modalImage.src = src;
+    modalImage.alt = alt;
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    clearInterval(autoplayInterval);
+  };
+
+  const closeModal = () => {
+    if (!modal || !modalImage) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    modalImage.src = '';
+    resetAutoplay();
+  };
+
+  images.forEach((image) => {
+    image.addEventListener('click', () => {
+      openModal(image.src, image.alt);
+    });
+  });
+
+  if (modalClose) {
+    modalClose.addEventListener('click', closeModal);
+  }
+
+  if (modal) {
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+  }
+
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal && modal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
   if (carouselContainer) {
     carouselContainer.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
     carouselContainer.addEventListener('mouseleave', () => resetAutoplay());
