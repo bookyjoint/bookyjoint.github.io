@@ -45,53 +45,12 @@
     </ul>
   </nav>
 
-  <!-- ── Welcome ──────────────────────────────────────────────── -->
-  <div class="card">
-    <div class="welcome-card">
-      <div class="welcome-text">
-        <h2>Welcome to Booky Joint!</h2>
-        <p>Mammoth Lakes' independent, locally owned bookstore since 1975. Stop in to browse our large selection of new and used books, art supplies, toys, games, Lego, maps, magazines, cards, and gifts — all nestled under beautiful Mammoth Mountain.</p>
-        <p style="text-align: center; margin-top:10px; font-size:1.2rem;">We no longer have a business phone, but we're always happy to hear from you — reach us by email at <a href="mailto:bookyjoint@gmail.com">bookyjoint@gmail.com</a>.</p>
-        <br>
-      </div>
-      <blockquote>
-        "A town isn't a town without a bookstore. It may call itself a town, but unless it's got a bookstore it knows it's not fooling a soul."
-        <cite>— Neil Gaiman, <em>American Gods</em></cite>
-      </blockquote>
-    </div>
-  </div>
-
-  <!-- ── Main content ─────────────────────────────────────────── -->
-  <div class="content-area">
-
-    <!-- We Carry + Hours side by side -->
-    <div class="info-row">
-
-      <!-- We Carry -->
-      <div class="card info-col">
-        <h2 style="text-align:center;">We Carry</h2>
-        <ul class="carry-list">
-          <li>New &amp; Used Books</li>
-          <li>Magazines</li>
-          <li>Cards</li>
-          <li>Local Interest &amp; Guides</li>
-          <li>Art Supplies</li>
-          <li>Toys</li>
-          <li>Games</li>
-          <li>Lego</li>
-          <li>Puzzles</li>
-          <li>Maps</li>
-          <li>Gifts &amp; Trinkets</li>
-        </ul>
-      </div>
-
-      <!-- Store Hours
-           ╔══════════════════════════════════╗
-           ║   UPDATE HOURS HERE EACH SEASON  ║
-           ╚══════════════════════════════════╝ -->
-      <div class="card info-col hours-card">
-        <h2>Store Hours</h2>
-        <br>
+  <!-- ── Welcome with Hours ──────────────────────────── -->
+  <div class="card welcome-card">
+    <div class="welcome-row">
+      <!-- Hours — left column -->
+      <div class="welcome-hours">
+        <h3>Store Hours</h3>
         <table>
           <tr><td>Monday</td><td>10am – 6pm</td></tr>
           <tr><td>Tuesday</td><td>10am – 6pm</td></tr>
@@ -103,31 +62,64 @@
           <tr><td>Christmas Eve</td><td>9am – 6pm</td></tr>
           <tr><td>Christmas Day</td><td>Closed</td></tr>
         </table>
-        <br>
         <p class="hours-note">Hours change seasonally</p>
-        <p class="hours-note">email us if you're not sure!</p>
-      <p class="hours-note"><a href="mailto:bookyjoint@gmail.com">Contact Us</a></p>
       </div>
-      <!-- END HOURS SECTION -->
 
-    </div><!-- /info-row -->
+      <!-- Welcome text — right column -->
+      <div class="welcome-text">
+        <h2>Welcome to Booky Joint!</h2>
+        <p>Mammoth Lakes' independent, locally owned bookstore since 1975. Stop in to browse our large selection of new and used books, art supplies, toys, games, Lego, maps, magazines, cards, and gifts — all nestled under beautiful Mammoth Mountain.</p>
+        <p style="text-align: center; margin-top:10px; font-size:0.8rem;"><em>We no longer have a business phone, but we're always happy to hear from you</em></p>
+        <p style="text-align: center; margin-top:10px; font-size:0.8rem;"><em>— reach us by email at <a href="mailto:bookyjoint@gmail.com">bookyjoint@gmail.com</a>.</em></p>
+        <blockquote>
+          "A town isn't a town without a bookstore. It may call itself a town, but unless it's got a bookstore it knows it's not fooling a soul."
+          <cite>— Neil Gaiman, <em>American Gods</em></cite>
+        </blockquote>
+      </div>
+    </div>
+  </div>
 
-    <!-- ╔═══════════════════════════════════════════╗
-         ║  ADD MORE CONTENT CARDS HERE LATER        ║
-         ║  e.g. stock photos, staff picks, events   ║
-         ╚═══════════════════════════════════════════╝ -->
+  <!-- ── Main content ─────────────────────────────────────────── -->
+  <div class="content-area">
 
-    <!-- Contact — full width below -->
-    <div class="col-left">
-      <div class="card contact-card">
-        <h3>Find Us</h3>
-        <address>
-          437 Old Mammoth Road<br>
-          PO Box 3639<br>
-          Mammoth Lakes, CA 93546<br>
-          <br>
-          <strong>Email:</strong> <a href="mailto:bookyjoint@gmail.com">bookyjoint@gmail.com</a>
-        </address>
+    <!-- We Carry -->
+    <div class="card">
+      <h2 style="text-align:center;">We Carry</h2>
+      <ul class="carry-list">
+        <li>New &amp; Used Books</li>
+        <li>Magazines</li>
+        <li>Cards</li>
+        <li>Local Interest &amp; Guides</li>
+        <li>Art Supplies</li>
+        <li>Toys</li>
+        <li>Games</li>
+        <li>Lego</li>
+        <li>Puzzles</li>
+        <li>Maps</li>
+        <li>Gifts &amp; Trinkets</li>
+      </ul>
+    </div>
+
+    <!-- Image carousel — full width below -->
+    <div class="carousel-heading">
+      <h2>Check out what we’ve got</h2>
+      <p>Discover a few of our favorite stock, local finds, and store highlights.</p>
+    </div>
+    <div class="carousel-container">
+      <div class="carousel-slide" id="carouselSlide">
+        <!-- Images loaded dynamically from images/carousel-manifest.json -->
+      </div>
+      
+      <button id="prevBtn">❮</button>
+      <button id="nextBtn">❯</button>
+    </div>
+
+    <div class="image-modal" id="imageModal" aria-hidden="true">
+      <button class="modal-close" id="modalClose" aria-label="Close image viewer">×</button>
+      <button class="modal-prev" id="modalPrev" aria-label="Previous image">‹</button>
+      <button class="modal-next" id="modalNext" aria-label="Next image">›</button>
+      <div class="modal-content">
+        <img id="modalImage" src="" alt="Full size carousel image">
       </div>
     </div>
 
@@ -172,5 +164,6 @@
   </div>
 </footer>
 
+<script src="js/img_carousel.js"></script>
 </body>
 </html>
