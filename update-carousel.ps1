@@ -2,7 +2,7 @@
 # Run this whenever you add/remove images from the images folder
 
 param(
-    [string]$ImagesDir = ".\images"
+    [string]$ImagesDir = ".\images\HomeCarousel"
 )
 
 # Supported image extensions
@@ -11,7 +11,7 @@ $imageExtensions = @('.jpg', '.jpeg', '.png', '.webp', '.gif', '.bmp')
 # Function to check if file is an image
 function Is-ImageFile {
     param([string]$filename)
-    $ext = [System.IO.Path]::GetExtension($filename).ToLowerCase()
+    $ext = [System.IO.Path]::GetExtension($filename).ToLower()
     return $imageExtensions -contains $ext
 }
 
@@ -35,7 +35,7 @@ try {
     $manifest = @()
     foreach ($file in $imageFiles) {
         $entry = @{
-            src = "images/$($file.Name)"
+            src = "images/HomeCarousel/$($file.Name)"
             alt = Generate-AltText $file.Name
         }
         $manifest += $entry

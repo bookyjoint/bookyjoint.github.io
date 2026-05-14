@@ -70,12 +70,17 @@ window.addEventListener('DOMContentLoaded', async () => {
   const carouselContainer = document.querySelector('.carousel-container');
   const modal = document.getElementById('imageModal');
   const modalClose = document.getElementById('modalClose');
+  const modalPrev = document.getElementById('modalPrev');
+  const modalNext = document.getElementById('modalNext');
   const modalImage = document.getElementById('modalImage');
 
-  const openModal = (src, alt) => {
-    if (!modal || !modalImage) return;
-    modalImage.src = src;
-    modalImage.alt = alt;
+  let currentModalIndex = -1;
+
+  const openModal = (index) => {
+    if (!modal || !modalImage || index < 0 || index >= images.length) return;
+    currentModalIndex = index;
+    modalImage.src = images[index].src;
+    modalImage.alt = images[index].alt;
     modal.classList.add('active');
     modal.setAttribute('aria-hidden', 'false');
     clearInterval(autoplayInterval);
@@ -86,17 +91,38 @@ window.addEventListener('DOMContentLoaded', async () => {
     modal.classList.remove('active');
     modal.setAttribute('aria-hidden', 'true');
     modalImage.src = '';
+    currentModalIndex = -1;
     resetAutoplay();
   };
 
-  images.forEach((image) => {
+  const nextModalImage = () => {
+    if (currentModalIndex >= 0) {
+      openModal((currentModalIndex + 1) % images.length);
+    }
+  };
+
+  const prevModalImage = () => {
+    if (currentModalIndex >= 0) {
+      openModal((currentModalIndex - 1 + images.length) % images.length);
+    }
+  };
+
+  Array.from(images).forEach((image, index) => {
     image.addEventListener('click', () => {
-      openModal(image.src, image.alt);
+      openModal(index);
     });
   });
 
   if (modalClose) {
     modalClose.addEventListener('click', closeModal);
+  }
+
+  if (modalPrev) {
+    modalPrev.addEventListener('click', prevModalImage);
+  }
+
+  if (modalNext) {
+    modalNext.addEventListener('click', nextModalImage);
   }
 
   if (modal) {

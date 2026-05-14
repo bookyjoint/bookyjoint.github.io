@@ -69,6 +69,7 @@
   object-fit: cover;
   object-position: center center;
   cursor: pointer;
+  image-orientation: from-image;
 }
 
 .image-modal {
@@ -80,6 +81,7 @@
   justify-content: center;
   padding: 24px;
   z-index: 200;
+  overflow: auto;
 }
 
 .image-modal.active {
@@ -97,6 +99,7 @@
   max-width: 100%;
   height: auto;
   max-height: 100%;
+  image-orientation: from-image;
   display: block;
   border: 4px solid rgba(255,255,255,0.85);
   border-radius: 8px;
@@ -118,6 +121,35 @@
 
 .modal-close:hover {
   background: rgba(255,255,255,0.25);
+}
+
+.modal-prev,
+.modal-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 210;
+}
+
+.modal-prev:hover,
+.modal-next:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.modal-prev {
+  left: 24px;
+}
+
+.modal-next {
+  right: 24px;
 }
 
 /* Navigation buttons only for the carousel */
@@ -195,35 +227,12 @@ a:hover { color: var(--link-hover); }
 .header-full {
   width: 100%;
   height: clamp(180px, 24vh, 240px);
-  background-image: url('images/Logo_BlueWhite_Website_With_Mountains.webp');
+  background-image: url('images/Banner/Logo_BlueWhite_Website_With_Mountains.webp');
   background-color: var(--navy);
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
 }
-
-/* ── Split header (future use, when hi-res logo available) ──
-.header-logo {
-  flex: 0 0 auto;
-  width: 310px;
-  min-height: 110px;
-  background-color: #e8dfc0;
-  background-image: url('images/logo.webp');
-  background-size: auto 110%;
-  background-position: left center;
-  background-repeat: no-repeat;
-  border-right: 2px solid var(--card-border);
-}
-
-.header-photo {
-  flex: 1;
-  min-height: 110px;
-  background-color: #6a8faa;
-  background-image: url('images/header-photo.webp');
-  background-size: cover;
-  background-position: right center;
-}
-────────────────────────────────────────────────────────── */
 
 /* ── Navigation ─────────────────────────────────────── */
 nav.main-nav {
@@ -650,7 +659,7 @@ footer p, footer address {
   /* .header-logo width rule goes here if split header is re-enabled */
   nav.main-nav ul li a { padding: 10px 12px; font-size: 0.82rem; }
   .photo-grid      { grid-template-columns: 1fr; }
-  .header-full     { background-image: url('images/Logo_BlueWhite_Website.webp'); }
+  .header-full     { background-image: url('images/Banner/Logo_BlueWhite_Website.webp'); }
   
   .welcome-row {
     flex-direction: column;
