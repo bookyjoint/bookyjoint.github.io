@@ -1,10 +1,32 @@
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', async () => {
   const carouselSlide = document.querySelector('.carousel-slide');
-  const images = document.querySelectorAll('.carousel-slide img');
   const prevBtn = document.querySelector('#prevBtn');
   const nextBtn = document.querySelector('#nextBtn');
 
-  if (!carouselSlide || images.length === 0 || !prevBtn || !nextBtn) {
+  if (!carouselSlide || !prevBtn || !nextBtn) {
+    return;
+  }
+
+  // Load carousel images from manifest
+  try {
+    const response = await fetch('images/carousel-manifest.json');
+    const imageList = await response.json();
+    
+    // Create and append img elements
+    imageList.forEach(image => {
+      const img = document.createElement('img');
+      img.src = image.src;
+      img.alt = image.alt;
+      carouselSlide.appendChild(img);
+    });
+  } catch (error) {
+    console.error('Error loading carousel manifest:', error);
+    return;
+  }
+
+  // Get images after they've been created
+  const images = document.querySelectorAll('.carousel-slide img');
+  if (images.length === 0) {
     return;
   }
 

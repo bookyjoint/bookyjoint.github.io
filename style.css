@@ -298,6 +298,91 @@ nav.main-nav ul li a.active {
   color: var(--text);
 }
 
+/* ── Welcome card — two columns ────────────────────── */
+.welcome-card {
+  padding: 16px 18px;
+}
+
+.welcome-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.welcome-hours {
+  flex: 0 0 200px;
+  padding-right: 12px;
+  border-right: 1px solid var(--card-border);
+}
+
+.welcome-hours h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.welcome-hours table {
+  width: 100%;
+  font-size: 0.8rem;
+  border-collapse: collapse;
+  margin-bottom: 8px;
+}
+
+.welcome-hours table td:first-child {
+  text-align: right;
+  padding-right: 8px;
+  white-space: nowrap;
+  color: var(--text);
+}
+
+.welcome-hours table td:last-child {
+  text-align: left;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.welcome-hours .hours-note {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.welcome-text {
+  flex: 1;
+}
+
+.welcome-text h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.welcome-text p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 8px 0;
+}
+
+.welcome-text blockquote {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-light);
+  margin-top: 12px;
+  padding-left: 12px;
+  border-left: 2px solid var(--card-border);
+}
+
+.welcome-text cite {
+  display: block;
+  font-style: normal;
+  margin-top: 6px;
+  font-size: 0.8rem;
+}
+
 /* ── Single column layout ───────────────────────────────
    To restore two columns later, change to:
      .content-area { display: flex; gap: 14px; align-items: flex-start; }
@@ -564,6 +649,23 @@ footer p, footer address {
   /* .header-logo width rule goes here if split header is re-enabled */
   nav.main-nav ul li a { padding: 10px 12px; font-size: 0.82rem; }
   .photo-grid      { grid-template-columns: 1fr; }
+  
+  .welcome-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .welcome-hours {
+    flex: 1 1 auto;
+    border-right: none;
+    border-bottom: 1px solid var(--card-border);
+    padding-right: 0;
+    padding-bottom: 12px;
+  }
+
+  .welcome-text {
+    flex: 1 1 auto;
+  }
 }
 
 @media (max-width: 520px) {
@@ -594,5 +696,14 @@ footer p, footer address {
 
   nav.main-nav ul li:last-child a {
     border-bottom: none;
+  }
+
+  .welcome-row {
+    flex-direction: column;
+  }
+
+  .welcome-hours {
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 12px;
   }
 }
