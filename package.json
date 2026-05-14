@@ -1,0 +1,11 @@
+{
+  "name": "booky-joint-website",
+  "version": "1.0.0",
+  "description": "Website for The Booky Joint bookstore",
+  "scripts": {
+    "update-carousel": "node update-carousel.js"
+  },
+  "keywords": ["bookstore", "website"],
+  "author": "Booky Joint",
+  "license": "MIT"
+}
