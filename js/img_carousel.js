@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   }
 
   // Load carousel images from manifest path set on the page.
-  const manifestPath = carouselSlide.dataset.manifest || 'images/carousel-manifest.json';
+  const manifestPath = carouselSlide.dataset.manifest || 'images/HomeCarousel/carousel-manifest.json';
 
   try {
     const response = await fetch(manifestPath);
