@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booky Joint – Puzzles</title>
+  <meta name="description" content="Booky Joint Puzzles Yo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Fredericka+the+Great&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="site-wrapper">
+  <header class="site-header">
+    <div class="header-full" role="img" aria-label="Booky Joint – Puzzles"></div>
+  </header>
+
+  <nav class="main-nav" aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="puzzles.html" class="active">Puzzles</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="mailto:bookyjoint@gmail.com">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <div class="content-area">
+
+    <div class="carousel-heading">
+      <h2>Puzzles</h2>
+      <p>We've got puzzles, big and small. Check some out in the photos below.</p>
+      <p>(<em>Click any image to view it in a larger size.)</em></p>
+
+    </div>
+
+    <div class="carousel-container">
+      <div class="carousel-slide" id="carouselSlide" data-manifest="images/Puzzles/carousel-manifest.json"></div>
+      <button id="prevBtn">❮</button>
+      <button id="nextBtn">❯</button>
+    </div>
+
+    <div class="image-modal" id="imageModal" aria-hidden="true">
+      <button class="modal-close" id="modalClose" aria-label="Close image viewer">×</button>
+      <button class="modal-prev" id="modalPrev" aria-label="Previous image">‹</button>
+      <button class="modal-next" id="modalNext" aria-label="Next image">›</button>
+      <div class="modal-content">
+        <img id="modalImage" src="" alt="Full size carousel image">
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Featured Puzzles</h2>
+      <p>Our personal favorites. Coming Soon.</p>
+    </div>
+
+  </div><!-- /content-area -->
+</div><!-- /site-wrapper -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-about">
+      <h4>About Us</h4>
+      <p>The Booky Joint has been independent and locally owned since first opening in Mammoth Lakes in 1975.</p>
+    </div>
+
+    <div class="footer-location">
+      <h4>Store Location</h4>
+      <address>
+        437 Old Mammoth Road<br>
+        PO Box 3639<br>
+        Mammoth Lakes, CA 93546
+      </address>
+    </div>
+
+    <div class="footer-hours">
+      <h4>Store Hours</h4>
+      <p>
+        10am – 6pm daily<br>
+        Christmas Eve: 9am – 6pm<br>
+        Christmas Day: Closed
+      </p>
+      <p class="hours-seasonal">Hours change seasonally.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/img_carousel.js"></script>
+</body>
+</html>
