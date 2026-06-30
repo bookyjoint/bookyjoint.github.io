@@ -227,7 +227,7 @@ a:hover { color: var(--link-hover); }
 .header-full {
   width: 100%;
   height: clamp(180px, 24vh, 240px);
-  background-image: url('images/Banner/Logo_BlueWhite_Website_With_Mountains.webp');
+  background-image: url('/images/Banner/Logo_BlueWhite_Website_With_Mountains.webp');
   background-color: var(--navy);
   background-size: contain;
   background-position: center center;
@@ -659,7 +659,7 @@ footer p, footer address {
   /* .header-logo width rule goes here if split header is re-enabled */
   nav.main-nav ul li a { padding: 10px 12px; font-size: 0.82rem; }
   .photo-grid      { grid-template-columns: 1fr; }
-  .header-full     { background-image: url('images/Banner/Logo_BlueWhite_Website.webp'); }
+  .header-full     { background-image: url('/images/Banner/Logo_BlueWhite_Website.webp'); }
   
   .welcome-row {
     flex-direction: column;
